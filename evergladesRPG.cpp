@@ -18,7 +18,7 @@ struct GameState
 {
     char everGladesMap[ROWS][COLS];
     bool dangerCells[ROWS][COLS];
-    int timeLeft = 20;
+    int timeLeft = 30;
     int rangerRow, rangerCol, touristRow, touristCol;
     string dangerName[5] = {"Hungry Alligator", "Swarm of Giant Mosquitos", "Venomous Spider", "Python", "Jaguar"};
     char dangerFill[5] = {'A', 'M', 'S', 'P', 'J'};
@@ -242,7 +242,7 @@ bool moveRanger(GameState &gameState) {
         // Danger cell, prompt the user for action
         handleDanger(gameState,newRow, newCol);
         return true;
-    } else {
+    } else if (cellContent == 'R') {
         // Other cases (e.g., 'R'), consider adding additional checks if needed
         cout << "Invalid move. Please choose a different cell." << endl;
         return false;
